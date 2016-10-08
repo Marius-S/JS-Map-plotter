@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.grid { margin:1em auto; border-collapse:collapse }
+.grid td {
+    cursor:pointer;
+    width:30px; height:30px;
+    border:1px solid #ccc;
+    text-align:center;
+    font-family:sans-serif; font-size:13px
+}
+.grid td.clicked {
+    background-color:yellow;
+    font-weight:bold; color:red;
+}
+</style>
+
+  <script src="js/reader.js"></script>
+  <script src="js/generator.js"></script>
+
+
+
+</head>
+
+<body>
+  <p>
+    X array size:
+  <input type="number" id="x_size">
+</p>
+<p>
+  Y array size:
+  <input type="number" id="y_size">
+</p>
+  <p>
+Array:<br>
+    <textarea rows="4" cols="50" id="text_zone"></textarea></p>
+  <p><button type="button" onclick="read()">Draw map</button></p>
+
+<div id="map">
+</div>
+
+</body>
+</html>
