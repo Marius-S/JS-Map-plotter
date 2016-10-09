@@ -14,9 +14,22 @@
   background-color:yellow;
   font-weight:bold; color:red;
 }
+.grid td.first {
+  background-color:green;
+  font-weight:bold; color:black;
+}
+.grid td.second {
+  background-color:red;
+  font-weight:bold; color:black;
+}
 </style>
 <script src="js/reader.js"></script>
 <script src="js/generator.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+<script src="js/zoompanzoom/zoompanzoom.js"></script>
+
 </head>
 <body>
   <p>
@@ -35,5 +48,10 @@
     </div>
     <div id="map-plot">
     </div>
+    <script type="text/javascript">
+    	$("#my_div").zoompanzoom({
+    		animationSpeed: "slow"
+    	});
+    </script>
   </body>
   </html>

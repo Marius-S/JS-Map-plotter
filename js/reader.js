@@ -8,6 +8,9 @@ function read() {
   var lines = document.getElementById("text_zone").value.split('\n');
   arrayX = new Array();
   arrayY = new Array();
+
+  if(lines.length > x_line * y_line - x_line){
+
   for(var i = 0;i < lines.length;i++) {
     var temp = lines[i];
     temp = parseInt(temp);
@@ -20,6 +23,12 @@ function read() {
       arrayX.push(temp);
     }
   }
+
+}
+else{
+  div_map.innerHTML = div_map.innerHTML + "Sorry, array too small";
+}
+
   if (arrayX != null){
     arrayY.push(arrayX);
   }
