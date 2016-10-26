@@ -11,3 +11,10 @@
 .col-xs-6{
   padding-bottom: 5px;
 }
+body{
+  background-color: #333333;
+  padding-top: 60px;
+}
+.btn-info{
+  margin-top: 15px;
+}

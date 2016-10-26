@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"> -->
-    <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-
-    <link href="css/css.css" rel="stylesheet">
-
+  <!-- <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+  <!-- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<style>
-.grid { margin:1em auto; border-collapse:collapse }
-.grid td {
-  cursor:pointer;
-  width:30px; height:30px;
-  border:1px solid #ccc;
-  text-align:center;
-  font-family:sans-serif; font-size:13px
-}
-.grid td.first {
-  background-color:green;
-  font-weight:bold; color:black;
-}
-.grid td.second {
-  background-color:red;
-  font-weight:bold; color:black;
-}
-</style>
-<script src="js/reader.js"></script>
-<script src="js/generator.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link href="css/css.css" rel="stylesheet">
+
+
+
+  <style>
+  .grid { margin:1em auto; border-collapse:collapse }
+  .grid td {
+    cursor:pointer;
+    width:30px; height:30px;
+    border:1px solid #ccc;
+    text-align:center;
+    font-family:sans-serif; font-size:13px
+  }
+  .grid td.first {
+    background-color:green;
+    font-weight:bold; color:black;
+  }
+  .grid td.second {
+    background-color:red;
+    font-weight:bold; color:black;
+  }
+  </style>
+  <script src="js/reader.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 
-
-
-  <div class="jumbotron">
-    <div class="row">
-    <div class="col-xs-6">
-      <img src="http://juozulevicius.lt/wp-content/uploads/2010/09/vdu-logo.png" alt="VMU Logo" style="width:163px;height:60px;">
-      Map plotter by Marius S.
-    </div>
-    <div class="col-xs-6">
-      <div id="map-plot">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#action">See more/Collapse</button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <a class="navbar-brand">Map plotter by Marius S.</a>
+        </form>
       </div>
     </div>
+  </nav>
+
+  <div id="action" class="collapse">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="http://juozulevicius.lt/wp-content/uploads/2010/09/vdu-logo.png" alt="VMU Logo" style="width:163px;height:60px;">
+        </div>
+        <div class="col-xs-6">
+          <div id="map-plot">
+          </div>
+        </div>
+      </div>
+      <p>
+
+        <input type="number" id="x_size" class="form-control" placeholder="X array size">
+        <input type="number" id="y_size" class="form-control" placeholder="Y array size">
+        <textarea rows="4" cols="50" id="text_zone" class="form-control" placeholder="Array"></textarea>
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="read()">Draw map</button>
+      </p>
+    </div>
   </div>
-    <p>
 
-
-<input type="number" id="x_size" class="form-control" placeholder="X array size">
-<input type="number" id="y_size" class="form-control" placeholder="Y array size">
-<textarea rows="4" cols="50" id="text_zone" class="form-control" placeholder="Array"></textarea>
-<button type="button" class="btn btn-lg btn-primary btn-block" onclick="read()">Draw map</button>
-    </p>
-  </div>
-
-
-  </body>
-  </html>
+</body>
+</html>
