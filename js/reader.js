@@ -1,57 +1,48 @@
 function read() {
-var div = document.getElementById('map');
-div.innerHTML = "";
-var x_line = document.getElementById("x_size").value;
-var y_line = document.getElementById("y_size").value;
-var lines = document.getElementById("text_zone").value.split('\n');
-console.log(x_line);
-console.log(y_line);
-console.log(lines);
+  var div_map = document.getElementById('map-plot');
+  div_map.innerHTML = "";
+//var table = $('table.grid');
+if($('table.grid').length){
 
-//building array
-arrayX = new Array();
-arrayY = new Array();
+    $('table.grid').remove();
+    // exists
+}
 
-//reading text zone part
-for(var i = 0;i < lines.length;i++) {
-  var temp = lines[i];
-  temp = parseInt(temp);
-  //console.log(temp);
 
-  if (arrayX.length != x_line){
-  arrayX.push(temp);
+  var x_line = document.getElementById("x_size").value;
+  var y_line = document.getElementById("y_size").value;
+  var lines = document.getElementById("text_zone").value.split('\n');
+  arrayX = new Array();
+  arrayY = new Array();
+
+  if(lines.length > x_line * y_line - x_line){
+
+    for(var i = 0;i < lines.length;i++) {
+      var temp = lines[i];
+      temp = parseInt(temp);
+      if (arrayX.length != x_line){
+        arrayX.push(temp);
+      }
+      else{
+        arrayY.push(arrayX);
+        arrayX = [];
+        arrayX.push(temp);
+      }
+    }
   }
   else{
-    arrayY.push(arrayX);
-    arrayX = [];
-    arrayX.push(temp);
+    div_map.innerHTML = div_map.innerHTML + "Sorry, array too small";
   }
-}
-
-//Adding last digits of not free array
-if (arrayX != null){
-  arrayY.push(arrayX);
-}
-
-//console.log(arrayX);
-console.log(arrayY);
-//div.innerHTML = div.innerHTML + "keistai";
-
-//Adding grid drawing functionallity
-var lastClicked;
-var grid = clickableGrid(y_line,x_line,function(el,row,col,i){
-    console.log("You clicked on element:",el);
-    console.log("You clicked on row:",row);
-    console.log("You clicked on col:",col);
-    console.log("You clicked on item #:",i);
-
-    el.className='clicked';
-    if (lastClicked) lastClicked.className='';
-    lastClicked = el;
-});
-
-document.body.appendChild(grid);
-
-//Returning results
-return arrayY;
+  if (arrayX != null){
+    arrayY.push(arrayX);
+  }
+  console.log(arrayY);
+  var lastClicked;
+  var grid = clickableGrid(y_line,x_line,function(el,row,col,i){
+    div_map.innerHTML = div_map.innerHTML + "You clicked on row: " + row + "<br>";
+    div_map.innerHTML = div_map.innerHTML + "You clicked on col: " + col + "<br>";
+    div_map.innerHTML = div_map.innerHTML + "Item value: " + arrayY[row][col];
+  });
+  document.body.appendChild(grid);
+  return arrayY;
 }
